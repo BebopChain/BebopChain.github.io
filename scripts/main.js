@@ -36,13 +36,16 @@ myButton.onclick = function () {
     setUserName();
 }
 
-document.addEventListener("mousemove", () => {
+document.addEventListener("mousemove", (event) => {
     let element = document.elementFromPoint(event.clientX, event.clientY);
     if (element) {
         let color = window.getComputedStyle(element).color;
         let rgb = color.match(/\d+/g);
         if (rgb && rgb[0] > 200 && rgb[1] < 50 && rgb[2] < 50) {
             alert("你的鼠标在红色文字上!");
+        }
+        else if(rgb && rgb[0] > 200 && rgb[1] > 200 && rgb[2] > 200 ){
+            alert("你的鼠标在白色文字上!");
         }
     }
 }
